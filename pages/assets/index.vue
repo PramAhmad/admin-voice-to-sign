@@ -39,7 +39,8 @@ const getImages = async ()=>{
 const deleteImage = async (id) => {
     // cofirm
     if(confirm("yakin kan menghapus data") === true){
-        const res = getImages()
+        const res = await axios.delete(`http://localhost:3000/images/${id}`)
+        getImages()
     }   
     else{
         alert("data tidak jadi dihapus")
