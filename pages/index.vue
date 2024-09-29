@@ -27,28 +27,31 @@ const email  = ref('')
 const password = ref('')
 const Login = async () => {
   try {
-    const res = await axios.post('http://localhost:3000/login', {
-      Username: email.value,
-      Password: password.value
+    const response = await fetch('http://202.10.36.111:83/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        Username: email.value,
+        Password: password.value,
+      }),
     });
 
-    if (res.status === 200 || res.status === 302) {
-      const token = res.data.token;
+    const res = await response.json();
+    console.log('data'+res)
+    if (response.status === 200 || response.status === 302) {
+      const token = res.token;
       document.cookie = `token=${token}`;
-      
+
       navigateTo('/dashboard');
       
-    } else{
-      alert(res.data)
+    } else {
+      alert(res);
     }
   } catch (error) {
-      if(error.response){
-        alert(error.response.data.error)
-        console.log(error.response.data.error)
-      }
-      else if (error.request) {
-        alert("gada dari server")
-      }
+    alert("An error occurred during the fetch operation.");
+    console.error(error);
   }
 };
 

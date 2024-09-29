@@ -33,7 +33,7 @@
 import axios from "axios"
 const data = ref()
 const CountData = async ()=>{
-    const res = await axios.get("http://localhost:3000/images")
+    const res = await axios.get("http://202.10.36.111:83/images")
     data.value = res.data.count
     
 }

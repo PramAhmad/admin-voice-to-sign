@@ -28,10 +28,10 @@ import axios from 'axios';
 const $route = useRoute();
 const data = ref([]);
 const nama = ref('');
-const path = ref(null); // Initialize path as null
+const path = ref(null);
 
 const getDetailAsset = async () => {
-    const res = await axios.get('http://localhost:3000/image/' + $route.params.id);
+    const res = await axios.get('http://202.10.36.111:83/image/' + $route.params.id);
     data.value = res.data.result;
     nama.value = res.data.result.Name;
   
@@ -40,15 +40,15 @@ const getDetailAsset = async () => {
 const updateAsset = async () => {
     console.log('nama:', nama.value);
     console.log('path:', path.value);
-    // jika file udah ada gak usah di update filenya
     if (path.value === null) {
         console.log('path is null');    
         try {
-            const res = await axios.put(`http://localhost:3000/image/${$route.params.id}`, {
+            const res = await axios.put(`http://202.10.36.111:83/image/${$route.params.id}`, {
                 Name: nama.value,
                 Path: null,
             });
-          navigateTo('/assets'+$route.params.id)
+            alert('Data berhasil diupdate');
+          navigateTo('/assets/'+$route.params.id)
         } catch (error) {
             console.error('Error updating asset:', error);
         }
@@ -58,7 +58,7 @@ const updateAsset = async () => {
 
   
         try {
-            const res = await axios.put(`http://localhost:3000/image/${$route.params.id}`, {
+            const res = await axios.put(`http://202.10.36.111:83/image/${$route.params.id}`, {
                 Name: nama.value,
                 Path: path.value
             

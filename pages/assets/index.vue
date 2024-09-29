@@ -2,7 +2,7 @@
     <UContainer>
         <div class="flex w-full">
        <SideBar/>
-       <div class="ml-10">
+       <div class="ml-10 pt-16">
 
            <table class="w-full ">
                 <tr class="w-full">
@@ -31,7 +31,8 @@
 import axios from 'axios';
 const datas = ref([])
 const getImages = async ()=>{
-    const res = await axios.get('http://localhost:3000/images')
+    const res = await axios.get('http://202.10.36.111:83/images')
+
     
     datas.value = res.data.result
     console.log(datas.value)
@@ -39,7 +40,7 @@ const getImages = async ()=>{
 const deleteImage = async (id) => {
     // cofirm
     if(confirm("yakin kan menghapus data") === true){
-        const res = await axios.delete(`http://localhost:3000/image/${id}`)
+        const res = await axios.delete(`http://202.10.36.111:83/image/${id}`)
         getImages()
     }   
     else{
