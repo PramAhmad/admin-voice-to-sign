@@ -71,7 +71,7 @@
   const description = ref('');
   
   const getDetailAsset = async () => {
-    const res = await axios.get(`http://202.10.36.111:83/content/${$route.params.id}`);
+    const res = await axios.get(`https://pramudita.my.id/content/${$route.params.id}`);
     data.value = res.data.result;
     title.value = res.data.result.Title; 
     link.value = res.data.result.Link;     
@@ -90,7 +90,7 @@
     };
   
     try {
-      const res = await axios.put(`http://202.10.36.111:83/content/${$route.params.id}`, updateData);
+      const res = await axios.put(`https://pramudita.my.id/content/${$route.params.id}`, updateData);
   
       Swal.fire({
         title: 'Success!',

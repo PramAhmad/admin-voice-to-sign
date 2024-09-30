@@ -55,7 +55,7 @@
 
     
     try {
-      const res = await axios.post('http://202.10.36.111:83/content', data);
+      const res = await axios.post('https://pramudita.my.id/content', data);
       console.log('Response:', res);
       router.push('/content'); // Navigate to the assets page
     } catch (error) {

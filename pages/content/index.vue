@@ -80,7 +80,7 @@
   
   const getContents = async () => {
     try {
-      const res = await axios.get('http://202.10.36.111:83/content'); // Update this URL based on your API
+      const res = await axios.get('https://pramudita.my.id/content'); // Update this URL based on your API
       datas.value = res.data.result;
       paginateContents();
     } catch (error) {
@@ -105,7 +105,7 @@
   
     if (confirmResult.isConfirmed) {
       try {
-        await axios.delete(`http://202.10.36.111:83/content/${id}`); // Update this URL based on your API
+        await axios.delete(`https://pramudita.my.id/content/${id}`); // Update this URL based on your API
         Swal.fire('Deleted!', 'The content has been deleted.', 'success');
         getContents();
       } catch (error) {

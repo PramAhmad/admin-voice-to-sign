@@ -38,7 +38,7 @@ const postAsset = async () => {
     formData.append('Name', nama.value);
     formData.append('path', path.value);
     try {
-        const res = await axios.post('http://202.10.36.111:83/image', formData);
+        const res = await axios.post('https://pramudita.my.id/image', formData);
         console.log('res:', res);
         navigateTo('/assets');
     } catch (error) {

@@ -27,7 +27,7 @@ const password = ref("");
 
 const Login = async () => {
   try {
-    const response = await fetch('http://202.10.36.111:83/login', {
+    const response = await fetch('https://pramudita.my.id/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

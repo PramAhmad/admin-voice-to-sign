@@ -34,12 +34,12 @@ import axios from "axios"
 const data = ref()
 const content = ref()
 const CountData = async ()=>{
-    const res = await axios.get("http://202.10.36.111:83/images")
+    const res = await axios.get("https://pramudita.my.id/images")
     data.value = res.data.count
     
 }
 const CountContent = async ()=>{
-    const res = await axios.get("http://202.10.36.111:83/content")
+    const res = await axios.get("https://pramudita.my.id/content")
     data.value = res.data.count
 }
 onMounted(()=>{

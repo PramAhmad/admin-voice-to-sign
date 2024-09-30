@@ -37,7 +37,7 @@
   const path = ref(null);
   
   const getDetailAsset = async () => {
-    const res = await axios.get('http://202.10.36.111:83/image/' + $route.params.id);
+    const res = await axios.get('https://pramudita.my.id/image/' + $route.params.id);
     data.value = res.data.result;
     nama.value = res.data.result.Name;
   };
@@ -52,7 +52,7 @@
     };
   
     try {
-      const res = await axios.put(`http://202.10.36.111:83/image/${$route.params.id}`, updateData, {
+      const res = await axios.put(`https://pramudita.my.id/image/${$route.params.id}`, updateData, {
         headers: path.value ? { 'Content-Type': 'multipart/form-data' } : {}
       });
       

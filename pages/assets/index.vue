@@ -63,7 +63,7 @@
   
   const getImages = async () => {
     try {
-      const res = await axios.get('http://202.10.36.111:83/images');
+      const res = await axios.get('https://pramudita.my.id/images');
       datas.value = res.data.result;
     //   parsing created at biat gak panjgan
         datas.value.forEach((data) => {
@@ -93,7 +93,7 @@
   
     if (confirmResult.isConfirmed) {
       try {
-        await axios.delete(`http://202.10.36.111:83/image/${id}`);
+        await axios.delete(`https://pramudita.my.id/image/${id}`);
         Swal.fire('Deleted!', 'The image has been deleted.', 'success');
         getImages();
       } catch (error) {
