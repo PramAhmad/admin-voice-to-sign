@@ -3,6 +3,18 @@
             <UVerticalNavigation :links="links" :ui="{
                 padding: 'py-5',
             }"  />   
+
+            <!-- button logout -->
+            <div class="flex justify-center">
+                <UButton
+                    color="primary"
+                    size="sm"
+                    class="mt-5"
+                    @click="Logout"
+                >
+                    Logout
+                </UButton>
+            </div>
     </div>
 </template>
 <script setup>
@@ -51,14 +63,15 @@ const links = [
   ],
   [
    
-    {
-      label: 'Logout',
-      icon: 'i-heroicons-question-mark-circle',
-      to: '/getting-started/examples',
-
-    }
+  
   ]
 ]
+
+
+const Logout = () => {
+  document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  navigateTo('/');
+}
 
 </script>
 <style lang="">
