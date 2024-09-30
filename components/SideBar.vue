@@ -19,7 +19,8 @@ const links = [
       avatar: {
         src: 'https://avatars.githubusercontent.com/u/739984?v=4'
       },
-    }, {
+    }
+   ],[ {
         label: 'Dashboard',
         icon: 'i-heroicons-home',
         to: '/dashboard',
@@ -36,11 +37,20 @@ const links = [
     }
   ],
   [
+// kontent edukasi
     {
-      label: 'Ananta Project',
+      label: 'Konten Edukasi',
       icon: 'i-heroicons-light-bulb',
-      to: '/ananta'
+      to: '/content'
     },
+    {
+      label: 'Tambah Konten',
+      icon: 'i-heroicons-question-mark-circle',
+      to: '/tambah-content'
+    }
+  ],
+  [
+   
     {
       label: 'Logout',
       icon: 'i-heroicons-question-mark-circle',
