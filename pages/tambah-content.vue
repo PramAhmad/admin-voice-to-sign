@@ -21,7 +21,10 @@
             </div>
            
             </div>
-            <UButton color="primary" size="sm" class="mt-5" type="submit">Add</UButton>
+            <UButton color="primary" size="sm" class="mt-5" type="submit">
+              <span v-if="loading">Loading...</span>
+              <span v-else>Tambah</span>
+            </UButton>
           </form>
         </section>
       </div>
@@ -38,14 +41,12 @@
   const link = ref('');
   const description = ref('');
   const path = ref(null);
+  const loading = ref(false);
   
-  const handleFileUpload = (e) => {
-    path.value = e.target.files[0];
-  };
-  
+ 
   const postAsset = async () => {
    
- 
+    loading.value = true;
     const data = {
         Title: title.value,
         Link: link.value,
@@ -56,8 +57,9 @@
     
     try {
       const res = await axios.post('https://pramudita.my.id/content', data);
+      loading.value = false;
       console.log('Response:', res);
-      router.push('/content'); // Navigate to the assets page
+      router.push('/content'); 
     } catch (error) {
       console.error('Error posting asset:', error);
     }
